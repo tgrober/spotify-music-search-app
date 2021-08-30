@@ -1,4 +1,5 @@
 import axios from 'axios';
+
 export const getParamValues = (url) => {
   return url
     .slice(1)
@@ -9,6 +10,7 @@ export const getParamValues = (url) => {
       return prev;
     }, {});
 };
+
 export const setAuthHeader = () => {
   try {
     const params = JSON.parse(localStorage.getItem('params'));

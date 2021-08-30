@@ -1,14 +1,18 @@
 import React, { useState } from 'react';
 import { Form, Button } from 'react-bootstrap';
+
 const SearchForm = (props) => {
   const [searchTerm, setSearchTerm] = useState('');
   const [errorMsg, setErrorMsg] = useState('');
+
   const handleInputChange = (event) => {
     const searchTerm = event.target.value;
     setSearchTerm(searchTerm);
   };
+
   const handleSearch = (event) => {
     event.preventDefault();
+
     if (searchTerm.trim() !== '') {
       setErrorMsg('');
       props.handleSearch(searchTerm);
@@ -16,6 +20,7 @@ const SearchForm = (props) => {
       setErrorMsg('Please enter a search term.');
     }
   };
+
   return (
     <div>
       <Form onSubmit={handleSearch}>
@@ -38,4 +43,5 @@ const SearchForm = (props) => {
     </div>
   );
 };
+
 export default SearchForm;
